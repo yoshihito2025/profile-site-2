@@ -1,0 +1,128 @@
+@use "./reset.css";
+@use "./variables" as *;
+@use "sass:map";
+
+html,
+body {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: map.get($colors, black);
+  height: 100dvh;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+a,
+small {
+  line-height: 1.6;
+  font-family:
+    "LINE Seed JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  color: map.get($colors, white);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p,
+li,
+a {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration-line: underline;
+}
+
+small {
+  font-size: 0.9rem;
+}
+
+// 全体
+.contents {
+  background-color: map.get($colors, light-black);
+  border-radius: 16px;
+  display: grid;
+  gap: 16px;
+  grid-template-rows: 170px 1fr 80px;
+  grid-template-columns: 1fr;
+  height: 90%;
+  place-content: center;
+  place-items: center;
+  @media (max-width: 768px) {
+    width: 350px;
+  }
+  @media (min-width: 1024px) {
+    width: 800px;
+  }
+}
+
+.header,
+.main,
+.footer {
+  width: 70%;
+}
+
+// ヘッダー
+.header {
+  border-bottom: 1px solid map.get($colors, white);
+  display: grid;
+  place-content: center;
+  place-items: center;
+  &__logo {
+    display: block;
+    height: auto;
+    @media (max-width: 768px) {
+      width: 200px;
+    }
+    @media (min-width: 1024px) {
+      width: 250px;
+    }
+  }
+  &__socials {
+    padding: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    li a {
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      height: 46px;
+      width: 46px;
+      background-color: map.get($colors, black);
+    }
+  }
+}
+
+// メイン
+.main {
+  height: 100%;
+  &__message {
+    padding-block: 1rem;
+  }
+}

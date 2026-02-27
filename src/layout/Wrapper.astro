@@ -1,0 +1,78 @@
+---
+import "../styles/global.scss";
+const { title } = Astro.props;
+const { message } = Astro.props;
+const socials = [
+  {
+    name: "X",
+    image: "x.svg",
+    link: "https://x.com/yoshihito_2025",
+  },
+  {
+    name: "GitHub",
+    image: "github.svg",
+    link: "https://github.com/yoshihito2025",
+  },
+  {
+    name: "Discord",
+    image: "discord.svg",
+    link: "https://discord.gg/eFrFHwfrc",
+  },
+];
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Yoshihito - {title}</title>
+  </head>
+  <body>
+    <div class="contents">
+      <header class="header">
+        <a href="/"
+          ><img class="header__logo" src="/images/logo.svg" alt="logo" /></a
+        >
+        <ul class="header__socials">
+          {
+            socials.map((obj) => (
+              <li>
+                <a href={obj.link} target="_blank">
+                  <img
+                    src={"/images/sns-icon/" + obj.image}
+                    height="32px"
+                    width="32px"
+                    alt=""
+                  />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </header>
+      <main class="main">
+        <h1 class="main__message">{message}</h1>
+        <slot />
+      </main>
+      <footer class="footer">
+        <small>Copyright &copy; 2026 Yoshihito, All right reserved.</small>
+      </footer>
+    </div>
+  </body>
+</html>
