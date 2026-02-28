@@ -5,10 +5,11 @@
 html,
 body {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
-  background-color: map.get($colors, black);
+  background-color: map.get($colors, dark-white);
   height: 100dvh;
   align-self: center;
   display: flex;
@@ -32,7 +33,7 @@ small {
   font-family:
     "LINE Seed JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
     "Hiragino Sans", Meiryo, sans-serif;
-  color: map.get($colors, white);
+  color: map.get($colors, black);
 }
 
 h1 {
@@ -63,11 +64,11 @@ small {
 
 // 全体
 .contents {
-  background-color: map.get($colors, light-black);
+  background-color: map.get($colors, white);
   border-radius: 16px;
   display: grid;
   gap: 16px;
-  grid-template-rows: 170px 1fr 80px;
+  grid-template-rows: 30% 1fr 80px;
   grid-template-columns: 1fr;
   height: 90%;
   place-content: center;
@@ -83,38 +84,40 @@ small {
 .header,
 .main,
 .footer {
+  height: 100%;
   width: 70%;
 }
 
 // ヘッダー
 .header {
-  border-bottom: 1px solid map.get($colors, white);
+  align-content: space-evenly;
+  border-bottom: 1px solid map.get($colors, black);
+  // display: grid;
+  // gap: 16px;
+  // place-content: center;
+  // place-items: center;
   display: grid;
-  place-content: center;
-  place-items: center;
+  grid-template-rows: repeat(2, auto);
+  justify-content: center;
   &__logo {
     display: block;
     height: auto;
-    @media (max-width: 768px) {
-      width: 200px;
-    }
-    @media (min-width: 1024px) {
-      width: 250px;
-    }
+    width: 250px;
   }
+
+  // ソーシャルリンク
   &__socials {
-    padding: 16px;
     align-items: center;
     display: flex;
     justify-content: center;
     gap: 16px;
     li a {
       border-radius: 50%;
+      border: 1px solid map.get($colors, black);
       display: grid;
       place-items: center;
       height: 46px;
       width: 46px;
-      background-color: map.get($colors, black);
     }
   }
 }
@@ -122,6 +125,8 @@ small {
 // メイン
 .main {
   height: 100%;
+  overflow: hidden;
+  min-width: 0;
   &__message {
     padding-block: 1rem;
   }

@@ -2,4 +2,94 @@
 import Wrapper from "../layout/Wrapper.astro";
 ---
 
-<Wrapper title="Top" message="Welcome to my site." />
+<Wrapper title="Top" message="I am a coder.">
+  <nav class="cards">
+    <div class="cards__card">
+      <img src="" alt="" class="cards__card-bg-img" />
+      <a href="/introduce" class="cards__card-link"
+        ><span class="cards__card-title">Introduce</span></a
+      >
+    </div>
+    <div class="cards__card">
+      <img src="" alt="" class="cards__card-bg-img" />
+      <a href="/skills" class="cards__card-link"
+        ><span class="cards__card-title">Skills</span></a
+      >
+    </div>
+    <div class="cards__card">
+      <img src="" alt="" class="cards__card-bg-img" />
+      <a href="/projects" class="cards__card-link"
+        ><span class="cards__card-title">Projects</span></a
+      >
+    </div>
+    <div class="cards__card">
+      <img src="" alt="" class="cards__card-bg-img" />
+      <a href="sitemap" class="cards__card-link"
+        ><span class="cards__card-title">Sitemap</span></a
+      >
+    </div>
+  </nav>
+</Wrapper>
+
+<style lang="scss">
+  @use "sass:map";
+  @use "../styles/variables" as *;
+
+  // `.cards` の影響で `.contents` が横に広がっています。周りに影響を与えないように直してくださいますでしょうか。
+
+  .cards {
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: calc(80% - 4.2rem - 20px);
+    // スクロールバー
+    scrollbar-width: none;
+
+    scroll-marker-group: after;
+    &::scroll-marker-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    &__card {
+      background-color: map.get($colors, light-black);
+      border-radius: 16px;
+      display: flex;
+      flex-shrink: 0;
+      width: 80%;
+      height: 100%;
+      &::scroll-marker {
+        background-color: map.get($colors, dark-white);
+        border-radius: 0;
+        content: "";
+        display: block;
+        height: 16px;
+        transition-duration: 0.2s;
+        width: 16px;
+        &:target-current {
+          background-color: map.get($colors, light-black);
+        }
+      }
+
+      &-link {
+        align-items: center;
+        color: map.get($colors, white);
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        text-decoration: none;
+        width: 100%;
+      }
+      &-title {
+        font-size: 1.5rem;
+        width: auto;
+      }
+    }
+  }
+</style>

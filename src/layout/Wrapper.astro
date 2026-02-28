@@ -1,5 +1,6 @@
 ---
 import "../styles/global.scss";
+import { ClientRouter } from "astro:transitions";
 const { title } = Astro.props;
 const { message } = Astro.props;
 const socials = [
@@ -42,6 +43,7 @@ const socials = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Yoshihito - {title}</title>
+    <ClientRouter />
   </head>
   <body>
     <div class="contents">
@@ -66,7 +68,7 @@ const socials = [
           }
         </ul>
       </header>
-      <main class="main">
+      <main class="main" transition:animate="slide">
         <h1 class="main__message">{message}</h1>
         <slot />
       </main>
