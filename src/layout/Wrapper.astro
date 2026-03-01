@@ -48,11 +48,17 @@ const socials = [
   <body>
     <div class="contents">
       <header class="header">
-        <img class="header__logo" src="/images/logo.svg" alt="logo" />
+        <a class="header__logo-link" href="/">
+          <img
+            class="header__logo-image"
+            src="/images/logo.svg"
+            alt="logo"
+          /></a
+        >
         <nav class="header__socials">
           {
             socials.map((obj) => (
-              <a class="header__socials-link" href={obj.url}>
+              <a class="header__socials-link" href={obj.url} target="_blank">
                 <img
                   class="header__socials-image"
                   src={"/images/sns/" + obj.image}

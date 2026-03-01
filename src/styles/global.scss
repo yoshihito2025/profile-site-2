@@ -35,8 +35,8 @@ body {
 .header,
 .main,
 .footer {
-  width: 100%;
   border-bottom: 1px solid map.get($colors, "black");
+  width: 100%;
 }
 
 .header {
@@ -45,14 +45,20 @@ body {
   align-content: space-evenly;
   place-items: center;
   justify-items: center;
-  border-bottom: 1px solid map.get($colors, "black");
 
   &__logo {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    &-link {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+    &-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   }
   &__socials {
     display: flex;
@@ -66,6 +72,11 @@ body {
       border: 1px solid map.get($colors, "black");
       display: grid;
       place-items: center;
+      transition-delay: 0.2s;
+      transition-duration: 0.1s;
+      &:hover {
+        scale: 1.1;
+      }
     }
     &-image {
       width: 80%;
@@ -84,6 +95,7 @@ body {
 }
 
 .footer {
+  border-bottom: none;
   height: 100%;
 }
 
