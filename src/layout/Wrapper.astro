@@ -2,22 +2,22 @@
 import "../styles/global.scss";
 import { ClientRouter } from "astro:transitions";
 const { title } = Astro.props;
-const { message } = Astro.props;
+const { msg } = Astro.props;
 const socials = [
   {
     name: "X",
     image: "x.svg",
-    link: "https://x.com/yoshihito_2025",
+    url: "https://x.com/yoshihito_2025",
   },
   {
     name: "GitHub",
     image: "github.svg",
-    link: "https://github.com/yoshihito2025",
+    url: "https://github.com/yoshihito2025",
   },
   {
     name: "Discord",
     image: "discord.svg",
-    link: "https://discord.gg/eFrFHwfrc",
+    url: "https://discord.gg/eFrFHwfrc",
   },
 ];
 ---
@@ -48,28 +48,23 @@ const socials = [
   <body>
     <div class="contents">
       <header class="header">
-        <a href="/"
-          ><img class="header__logo" src="/images/logo.svg" alt="logo" /></a
-        >
-        <ul class="header__socials">
+        <img class="header__logo" src="/images/logo.svg" alt="logo" />
+        <nav class="header__socials">
           {
             socials.map((obj) => (
-              <li>
-                <a href={obj.link} target="_blank">
-                  <img
-                    src={"/images/sns-icon/" + obj.image}
-                    height="32px"
-                    width="32px"
-                    alt=""
-                  />
-                </a>
-              </li>
+              <a class="header__socials-link" href={obj.url}>
+                <img
+                  class="header__socials-image"
+                  src={"/images/sns/" + obj.image}
+                  alt=""
+                />
+              </a>
             ))
           }
-        </ul>
+        </nav>
       </header>
       <main class="main" transition:animate="slide">
-        <h1 class="main__message">{message}</h1>
+        <h1 class="main__msg">{msg}</h1>
         <slot />
       </main>
       <footer class="footer">
