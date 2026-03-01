@@ -28,29 +28,30 @@ body {
   width: 100%;
   grid-column: 2;
   display: grid;
-  grid-template-rows: 200px 1fr 100px;
+  grid-template-rows: 300px 1fr 100px;
   gap: 24px;
 }
 
 .header,
 .main,
 .footer {
-  border-bottom: 1px solid map.get($colors, "black");
   width: 100%;
 }
 
 .header {
   height: 100%;
+  border-bottom: 1px solid map.get($colors, "black");
   display: grid;
   align-content: space-evenly;
   place-items: center;
   justify-items: center;
 
+  // ロゴ
   &__logo {
     &-link {
       display: block;
       margin: 0 auto;
-      width: 100%;
+      width: 87%;
       max-width: 300px;
       height: auto;
     }
@@ -60,11 +61,13 @@ body {
       height: auto;
     }
   }
+
+  // ソーシャルリンク
   &__socials {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 24px;
     &-link {
       width: 50px;
       height: 50px;
@@ -95,25 +98,50 @@ body {
 }
 
 .footer {
-  border-bottom: none;
+  padding-top: 24px;
+  border-top: 1px solid map.get($colors, "black");
   height: 100%;
 }
 
-// Text
+// parts
+
+.button {
+  display: inline-block;
+  font-size: 1rem;
+  margin-block: 1rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid map.get($colors, "black");
+  border-radius: calc(1px * infinity);
+  text-decoration: none;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s;
+  &:hover {
+    background-color: map.get($colors, "black");
+    color: map.get($colors, "white");
+  }
+}
+
+// 文字
 h1,
 h2,
 h3,
 p,
 a,
 li,
+span,
 small {
   color: map.get($colors, "black");
   line-height: 1.6;
   font-family:
     "LINE Seed JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
     "Hiragino Sans", Meiryo, sans-serif;
+  overflow-wrap: break-word;
 }
-
+p,
+a,
+li {
+  font-size: 1rem;
+}
 h1 {
   font-size: clamp(1.75rem, 4vw, 2rem);
 }
@@ -123,10 +151,8 @@ h2 {
 h3 {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
-p,
-a,
-li {
-  font-size: 1rem;
+a {
+  text-decoration-line: underline;
 }
 small {
   font-size: 0.85rem;
