@@ -1,7 +1,7 @@
 ---
 import "../styles/global.scss";
 import { ClientRouter } from "astro:transitions";
-const { title } = Astro.props;
+const { ttl } = Astro.props;
 const { msg } = Astro.props;
 const socials = [
   {
@@ -29,20 +29,20 @@ const socials = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&display=swap"
         rel="stylesheet"
       />
     </noscript>
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Yoshihito - {title}</title>
+    <title>Yoshihito - {ttl}</title>
     <ClientRouter />
   </head>
   <body>
@@ -71,7 +71,9 @@ const socials = [
       </header>
       <main class="main" transition:animate="slide">
         <h1 class="main__msg">{msg}</h1>
-        <slot />
+        <div class="main__contents">
+          <slot />
+        </div>
       </main>
       <footer class="footer">
         <small>Copyright &copy; 2026 Yoshihito, All right reserved.</small>
