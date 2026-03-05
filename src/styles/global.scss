@@ -16,6 +16,10 @@ html {
 
 body {
   background-color: map.get($colors, "white");
+  background-image:
+    linear-gradient(map.get($colors, "dark-white") 1px, transparent 1px),
+    linear-gradient(90deg, map.get($colors, "dark-white") 1px, transparent 1px);
+  background-size: 48px 48px;
   font-size: 1rem;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
@@ -91,6 +95,7 @@ body {
   padding-bottom: 24px;
   overflow: hidden;
   &__msg {
+    margin-block: 1rem;
     text-align: center;
   }
   &__contents {
@@ -112,20 +117,22 @@ h3,
 p,
 a,
 li,
-span,
 small {
   color: map.get($colors, "black");
   line-height: 1.6;
+  letter-spacing: 0.05rem;
   font-family:
     "LINE Seed JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
     "Hiragino Sans", Meiryo, sans-serif;
   overflow-wrap: break-word;
 }
-p,
-a,
-li {
-  font-size: 1rem;
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.08rem;
 }
+
 h1 {
   font-size: clamp(1.75rem, 4vw, 2rem);
 }
@@ -135,6 +142,13 @@ h2 {
 h3 {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
+
+p,
+a,
+li {
+  font-size: 1rem;
+}
+
 .link {
   position: relative;
   display: inline-block;

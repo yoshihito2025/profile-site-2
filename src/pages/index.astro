@@ -6,25 +6,21 @@ style - normal, large
 */
 const cardContents = [
   {
-    style: "normal",
     url: "/introduce",
     ttl: "Introduce",
     desc: "Who I am.",
   },
   {
-    style: "normal",
     url: "/skills",
     ttl: "Skills",
     desc: "Skills I have acquired.",
   },
   {
-    style: "large",
     url: "/projects",
     ttl: "Projects",
     desc: "selected works and experiment.",
   },
   {
-    style: "normal",
     url: "/sitemap",
     ttl: "Sitemap",
     desc: "Explore this site.",
@@ -36,7 +32,7 @@ const cardContents = [
   <nav class="card-contents">
     {
       cardContents.map((obj) => (
-        <a class={"card-contents__card--" + obj.style} href={obj.url}>
+        <a class="card-contents__card" href={obj.url}>
           <h2 class="card-contents__card-ttl">{obj.ttl}</h2>
           <p class="card-contents__card-desc">{obj.desc}</p>
         </a>
@@ -45,4 +41,28 @@ const cardContents = [
   </nav>
 </Wrapper>
 
-<style lang="scss"></style>
+<style lang="scss">
+  @use "sass:map";
+  @use "../styles/variables" as *;
+
+  .card-contents {
+    margin-top: 16px;
+    display: grid;
+    gap: 32px;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__card {
+      padding: 48px 40px;
+      border: 1px solid map.get($colors, "black");
+      border-radius: 8px;
+      transition: transform ease 0.3s;
+      &:hover {
+        transform: translateY(-8px);
+      }
+      &-ttl {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+</style>
