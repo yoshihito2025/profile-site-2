@@ -1,5 +1,30 @@
 ---
 import Wrapper from "../layout/Wrapper.astro";
+import GridTable from "../components/GridTable.astro";
+const status = [
+  {
+    label: "name",
+    value: "Yoshihito",
+  },
+  {
+    label: "age",
+    value: "16",
+  },
+  {
+    label: "languages",
+    value: "HTML / CSS / JS / C / C++",
+  },
+  {
+    label: "tools",
+    value: "VS Code / Unity / Blender",
+  },
+  {
+    label: "learning",
+    value: "C / C++ / Unity / Blender",
+  },
+];
 ---
 
-<Wrapper ttl="Introduce" msg="About me" />
+<Wrapper ttl="Introduce" msg="About me">
+  <GridTable data={status} />
+</Wrapper>

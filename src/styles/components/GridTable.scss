@@ -1,0 +1,35 @@
+.grid-table {
+  display: grid;
+  &__label,
+  &__value {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  &__label {
+    text-transform: uppercase;
+  }
+
+  //small
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    &__label:not(:first-child) {
+      margin-top: 2rem;
+    }
+    &__value {
+      margin-top: 1rem;
+    }
+  }
+
+  // medium, large
+  @media (min-width: 500px) {
+    gap: 48px 40px;
+    grid-template-columns: 160px 1fr;
+    &__label {
+      margin: 0;
+    }
+  }
+  // large
+  @media (min-width: 750px) {
+    padding-left: 10%;
+  }
+}

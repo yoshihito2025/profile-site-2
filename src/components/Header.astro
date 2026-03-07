@@ -1,0 +1,93 @@
+---
+import "../styles/components/Header.scss";
+const socials = [
+  {
+    name: "X",
+    image: "x.svg",
+    url: "https://x.com/yoshihito_2025",
+  },
+  {
+    name: "GitHub",
+    image: "github.svg",
+    url: "https://github.com/yoshihito2025",
+  },
+  {
+    name: "Discord",
+    image: "discord.svg",
+    url: "https://discord.gg/eFrFHwfrc",
+  },
+];
+---
+
+<header class="header">
+  <a class="header__logo-link" href="/">
+    <img class="header__logo-image" src="/images/logo.svg" alt="logo" /></a
+  >
+  <nav class="header__socials">
+    {
+      socials.map((obj) => (
+        <a class="header__socials-link" href={obj.url} target="_blank">
+          <img
+            class="header__socials-image"
+            src={"/images/sns/" + obj.image}
+            alt=""
+          />
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<style lang="scss">
+  @use "sass:map";
+  @use "../styles/variables" as *;
+
+  .header {
+    border-bottom: 1px solid map.get($colors, "black");
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-content: space-evenly;
+    place-items: center;
+    justify-items: center;
+
+    // ロゴ
+    &__logo {
+      &-link {
+        display: block;
+        margin: 0 auto;
+        width: 87%;
+        max-width: 300px;
+        height: auto;
+      }
+      &-image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    // ソーシャルリンク
+    &__socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      &-link {
+        width: 37px;
+        height: 37px;
+        display: grid;
+        place-items: center;
+      }
+      &-image {
+        width: 100%;
+        height: 100%;
+        transition: opacity ease 0.2s;
+        transition-delay: 0.1s;
+        &:hover {
+          opacity: 0.65;
+        }
+      }
+    }
+  }
+</style>

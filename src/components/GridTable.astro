@@ -1,0 +1,16 @@
+---
+import "../styles/components/GridTable.scss";
+const { data } = Astro.props;
+type Objects = {
+  label: string;
+  value: string;
+}
+---
+
+
+<div class="grid-table">
+  {data.map((obj: Objects) => (
+    <h2 class="grid-table__label">{obj.label}</h2>
+    <p class="grid-table__value">{obj.value}</p>
+  ))}
+</div>

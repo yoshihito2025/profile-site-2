@@ -12,6 +12,9 @@ body {
 
 html {
   font-size: 100%;
+  font-family:
+    "LINE Seed JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
 }
 
 body {
@@ -36,58 +39,8 @@ body {
   gap: 24px;
 }
 
-.header,
-.main,
-.footer {
+.main {
   width: 100%;
-}
-
-.header {
-  height: 100%;
-  border-bottom: 1px solid map.get($colors, "black");
-  display: grid;
-  align-content: space-evenly;
-  place-items: center;
-  justify-items: center;
-
-  // ロゴ
-  &__logo {
-    &-link {
-      display: block;
-      margin: 0 auto;
-      width: 87%;
-      max-width: 300px;
-      height: auto;
-    }
-    &-image {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  // ソーシャルリンク
-  &__socials {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 35px;
-    &-link {
-      width: 37px;
-      height: 37px;
-      display: grid;
-      place-items: center;
-    }
-    &-image {
-      width: 100%;
-      height: 100%;
-      transition: opacity ease 0.2s;
-      transition-delay: 0.1s;
-      &:hover {
-        opacity: 0.65;
-      }
-    }
-  }
 }
 
 .main {
@@ -104,12 +57,6 @@ body {
   }
 }
 
-.footer {
-  padding-top: 24px;
-  border-top: 1px solid map.get($colors, "black");
-  height: 100%;
-}
-
 // 文字
 h1,
 h2,
@@ -121,9 +68,6 @@ small {
   color: map.get($colors, "black");
   line-height: 1.6;
   letter-spacing: 0.05rem;
-  font-family:
-    "LINE Seed JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif;
   overflow-wrap: break-word;
 }
 

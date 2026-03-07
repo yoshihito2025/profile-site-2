@@ -1,25 +1,10 @@
 ---
 import "../styles/global.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 const { ttl } = Astro.props;
 const { msg } = Astro.props;
-const socials = [
-  {
-    name: "X",
-    image: "x.svg",
-    url: "https://x.com/yoshihito_2025",
-  },
-  {
-    name: "GitHub",
-    image: "github.svg",
-    url: "https://github.com/yoshihito2025",
-  },
-  {
-    name: "Discord",
-    image: "discord.svg",
-    url: "https://discord.gg/eFrFHwfrc",
-  },
-];
 ---
 
 <html lang="ja">
@@ -47,37 +32,14 @@ const socials = [
   </head>
   <body>
     <div class="contents">
-      <header class="header">
-        <a class="header__logo-link" href="/">
-          <img
-            class="header__logo-image"
-            src="/images/logo.svg"
-            alt="logo"
-          /></a
-        >
-        <nav class="header__socials">
-          {
-            socials.map((obj) => (
-              <a class="header__socials-link" href={obj.url} target="_blank">
-                <img
-                  class="header__socials-image"
-                  src={"/images/sns/" + obj.image}
-                  alt=""
-                />
-              </a>
-            ))
-          }
-        </nav>
-      </header>
+      <Header />
       <main class="main">
         <h1 class="main__msg">{msg}</h1>
         <div class="main__contents">
           <slot />
         </div>
       </main>
-      <footer class="footer">
-        <small>Copyright &copy; 2026 Yoshihito, All right reserved.</small>
-      </footer>
+      <Footer />
     </div>
   </body>
 </html>

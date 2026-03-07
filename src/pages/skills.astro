@@ -1,5 +1,39 @@
 ---
 import Wrapper from "../layout/Wrapper.astro";
+import GridTable from "../components/GridTable.astro";
+const skills = [
+  {
+    label: "HTML / CSS",
+    value:
+      "配色やレイアウトを考えてページを作ることができます。今は保守性・メンテナンス性に配慮してコードを書くことを意識しています。",
+  },
+  {
+    label: "JavaScript / TypeScript",
+    value:
+      "基礎の基礎（基本的な構文やAPIなど）は身につけたつもりです。これからは実践（ES6, 非同期処理）を勉強します。",
+  },
+  {
+    label: "C / C++",
+    value:
+      "基礎（メモリ管理やクラス）は身につけたつもりです。今は C++ を使いこなすための機能を勉強しています。将来的には、ゲームを作るつもりです。",
+  },
+  {
+    label: "Unity",
+    value:
+      "基礎（RigidbodyやColliderなど）は身につけたつもりです。これからは本格的なゲームを作るための機能を勉強します。",
+  },
+  {
+    label: "Blender",
+    value: "単純なオブジェクトを作れますが、キャラクターはまだ作れません。",
+  },
+  {
+    label: "身につけたい能力",
+    value:
+      "数学の知識（ゲームプログラミングで役立つと思います）, 画力（キャラクターを描いてみたいです）",
+  },
+];
 ---
 
-<Wrapper ttl="Skills" msg="Skills" />
+<Wrapper ttl="Skills" msg="Skills">
+  <GridTable data={skills} />
+</Wrapper>
