@@ -22,7 +22,7 @@ body {
   background-image:
     linear-gradient(map.get($colors, "dark-white") 1px, transparent 1px),
     linear-gradient(90deg, map.get($colors, "dark-white") 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-size: 64px 64px;
   font-size: 1rem;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
